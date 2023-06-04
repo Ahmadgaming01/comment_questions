@@ -16,7 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from comment.views import Questions_list,Questions_details,Questions_edit,delete_question
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('blog/' , Questions_list),
+    path('blog/<int:question_id>' , Questions_details),
+    path('blog/<int:question_id>/edit' , Questions_edit),
+    path('blog/<int:question_id>/delete' , delete_question),
+
 ]
